@@ -13,9 +13,9 @@ Babysitter & Daycare: Kids
 Bank Fee: Fees & Charges
 Bills & Utilities: Root
 Bonus: Income
-Books: Shopping
-Books & Supplies: Education
-Business Services: Root
+Books: "Quality of Life Goals: Education"
+Books & Supplies: "True Expenses: Gifts"
+Business Services: "True Expenses: Stuff I Forgot to Budget For"
 Buy: Investments
 Cash & ATM: Uncategorized
 Charity: Gifts & Donations
@@ -43,7 +43,7 @@ Furnishings: Home
 Gas & Fuel: Auto & Transport
 Gift: Gifts & Donations
 Gifts & Donations: Root
-Groceries: Food & Dining
+Groceries: "Immediate Obligations: Groceries"
 Gym: Health & Fitness
 Hair: Personal Care
 Health & Fitness: Root
@@ -83,12 +83,12 @@ Music: Entertainment
 Newspapers & Magazines: Entertainment
 Office Supplies: Business Services
 Parking: Auto & Transport
-Paycheck: Income
+Paycheck: ""
 Personal Care: Root
 Pet Food & Supplies: Pets
 Pet Grooming: Pets
 Pets: Root
-Pharmacy: Health & Fitness
+Pharmacy: "True Expenses: Medical"
 Printing: Business Services
 Property Tax: Taxes
 Public Transportation: Auto & Transport

@@ -43,15 +43,18 @@ def get_category(category):
 df = pd.read_csv(transaction_file_name)
 
 # Get parent category for eatch row or category column
-df['ynab_category'] = df['category'].apply(get_category)
+df['Category Group/Category'] = df['category'].apply(get_category)
 df['inflow'] = np.where(df['transaction_type']=='credit', df['amount'], df['amount'] * -1)
 df = df.fillna('')
 
 if account_filter:
     df = df.loc[df['account_name'] == account_filter]
 
+df = df.rename(columns={'account_name': 'account', 'description': 'Payee'})
+df = df.drop(columns=['original_description', 'labels', 'notes','category', 'transaction_type'])
+
 print (df)
 # save dataframe to new csv file
-# df.to_csv(new_output_file_name, index=False)
+df.to_csv(new_output_file_name, index=False)
 
 f.close()  # close yaml file
