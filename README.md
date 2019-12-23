@@ -28,5 +28,5 @@ python categories.py mintapi-transactions.csv out.csv
 
 Filter by account name
 ```
-python categories.py mintapi-transactions.csv out.csv Mastercard
+python categories.py mintapi-transactions.csv transactions.csv Mastercard
 ```
