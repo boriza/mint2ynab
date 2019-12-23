@@ -6,7 +6,7 @@ import argparse
 import os
 
 transaction_file_name = 'mintapi-transactions.csv'
-new_output_file_name = 'MINT-transactions.csv'
+new_output_file_name = 'transactions.csv'
 categories_map_file_path = 'categories-map-conf.yml'
 categories_ynab_map_file_path = '/Users/boriza/Documents/dev/projects_workspaces/projects/mint/mint2ynab/categories-ynab.json'
 
@@ -53,6 +53,11 @@ if account_filter:
 
 df = df.rename(columns={'account_name': 'AccountName', 'description': 'Payee', 'notes': 'Memo' ,'date': 'Date'})
 df = df.drop(columns=['original_description', 'labels',  'transaction_type','category','amount'])
+
+def get_category_id(category_name):
+    return "2cd11394-803f-47a8-9cd8-6ea5457b2938"
+
+df['Category_ID'] = df['Category'].apply(get_category_id)
 
 # save dataframe to new csv file
 df.to_csv(new_output_file_name, index=False)
