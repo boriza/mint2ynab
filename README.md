@@ -1,8 +1,7 @@
-# mint2ynab
-mint.com to youneedabudget.com migration script including categories
+# mint2ynab 
+### mint.com to youneedabudget.com migration script including categories
 
-Export mint.com
-mint.com export can be generated with https://github.com/mrooney/mintapi
+mint export can be generated with https://github.com/mrooney/mintapi
 
 ## dependencies
 
@@ -27,7 +26,7 @@ Usage
 python categories.py mintapi-transactions.csv out.csv
 ```
 
-Usage filter account name
+Filter by account name
 ```
 python categories.py mintapi-transactions.csv out.csv Mastercard
 ```
