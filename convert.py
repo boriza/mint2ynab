@@ -54,8 +54,33 @@ if account_filter:
 df = df.rename(columns={'account_name': 'AccountName', 'description': 'Payee', 'notes': 'Memo' ,'date': 'Date'})
 df = df.drop(columns=['original_description', 'labels',  'transaction_type','category','amount'])
 
+# ------- json category ids
+
+import json
+import collections
+
+categories_mint_ynab = {}
+
+def get_ynab_categories(categories_ynab_map_file_path):
+    
+    cat = collections.defaultdict(lambda : '') 
+    # read file
+    with open(categories_ynab_map_file_path, 'r') as myfile:
+        data=myfile.read()
+
+    # parse file
+    categories_dict = json.loads(data)
+
+    for category_group in categories_dict['data']["category_groups"]:
+        for category in category_group['categories']:
+            cat[category['name']] = category['id']
+
+    return cat
+
+categories_mint_ynab = get_ynab_categories(categories_ynab_map_file_path)
+
 def get_category_id(category_name):
-    return "2cd11394-803f-47a8-9cd8-6ea5457b2938"
+    return categories_mint_ynab[category_name]
 
 df['Category_ID'] = df['Category'].apply(get_category_id)
 
@@ -65,3 +90,4 @@ df.to_csv(new_output_file_name, index=False)
 print (df)
 
 f.close()  # close yaml file
+
