@@ -29,5 +29,5 @@ pip install logging
 
 Run 
 ```
-  python convert.py [replace_this_with_ynapapi_account_id] path-to/mint-transactions.csv path-to/transactions.csv '[account_name in input mint csv]'
+  python migrate.py [replace_this_with_ynapapi_account_id] path-to/mint-transactions.csv path-to/transactions.csv '[account_name in input mint csv]'
 ```
