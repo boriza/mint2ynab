@@ -6,12 +6,13 @@ import argparse
 import os
 import logging
 import requests
+from datetime import datetime
 
 #conversion
 transaction_file_name = 'mintapi-transactions.csv'
 new_output_file_name = 'transactions.csv'
 categories_map_file_path = 'categories-map-conf.yml'
-categories_ynab_map_file_path = 'pathto/categories-ynab.json'
+categories_ynab_map_file_path = 'categories-ynab.json'
 
 # YNAB API https://api.youneedabudget.com/v1#/
 api_token = 'replace_me'
@@ -54,6 +55,8 @@ df = pd.read_csv(transaction_file_name)
 # Get parent category for eatch row or category column
 df['Category'] = df['category'].apply(get_category)
 df['Inflow'] = np.where(df['transaction_type']=='credit', df['amount'], df['amount'] * -1)
+df['date'] = pd.to_datetime(df["date"], format='%d/%m/%y', errors='coerce').dt.strftime('%Y-%m-%d')
+
 df = df.fillna('')
 
 if account_filter:
